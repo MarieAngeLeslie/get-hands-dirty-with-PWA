@@ -30,20 +30,20 @@ const subscribeUser = async () => {
 }
 
 
-function urlB64ToUint8Array(base64String:any) {
+function urlB64ToUint8Array(base64String: any) {
     const padding = '='.repeat((4 - base64String.length % 4) % 4);
     const base64 = (base64String + padding)
-      .replace(/\-/g, '+')
-      .replace(/_/g, '/');
-  
+        .replace(/\-/g, '+')
+        .replace(/_/g, '/');
+
     const rawData = window.atob(base64);
     const outputArray = new Uint8Array(rawData.length);
-  
+
     for (let i = 0; i < rawData.length; ++i) {
-      outputArray[i] = rawData.charCodeAt(i);
+        outputArray[i] = rawData.charCodeAt(i);
     }
     return outputArray;
-  }
+}
 
 
 
@@ -58,7 +58,7 @@ const generateSubscriberEndPoint = async (newRegistration: ServiceWorkerRegistra
 
     const subscription = await newRegistration.pushManager.subscribe(options).then(
         (pushSubscription) => {
-            console.log(pushSubscription.endpoint);
+            console.log(pushSubscription);
         },
         (error) => {
             console.log("error when trying to susbcribe: ", error);
@@ -66,7 +66,7 @@ const generateSubscriberEndPoint = async (newRegistration: ServiceWorkerRegistra
         },
     );
 
-    //console.log(subscription);
+    console.log("subscribption", subscription);
 
 }
 
