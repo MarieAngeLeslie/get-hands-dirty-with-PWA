@@ -1,0 +1,15 @@
+{
+    "name": "Mydunya Testing Functionnalities",
+    "short_name": "MydunyaTesting",
+    "icons": [
+        {
+            "src": "/main-logo.png",
+            "type": "image/png",
+            "sizes": "512x512",
+            "purpose": "any"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "id": "MydunyaTestingFunctionnalities"
+}
