@@ -30,7 +30,7 @@ export default function Home() {
           height={38}
           priority
         />
-        <h1>MyDunya Testing</h1>
+        <h1>MyDunya Testing APP</h1>
 
         <div className={styles.ctas}>
           <a
