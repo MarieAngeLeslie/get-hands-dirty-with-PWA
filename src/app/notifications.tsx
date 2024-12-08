@@ -30,24 +30,22 @@ const subscribeUser = async () => {
 }
 
 
-function urlB64toUint8Array(base64String: any) {
-    console.log("vapidkey : ", base64String);
-
-    const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+function urlB64ToUint8Array(base64String:any) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
     const base64 = (base64String + padding)
-        .replace(/-/g, '+')
-        .replace(/_/g, '/');
-
-    // Décode en chaîne binaire
+      .replace(/\-/g, '+')
+      .replace(/_/g, '/');
+  
     const rawData = window.atob(base64);
     const outputArray = new Uint8Array(rawData.length);
-
+  
     for (let i = 0; i < rawData.length; ++i) {
-        outputArray[i] = rawData.charCodeAt(i);
+      outputArray[i] = rawData.charCodeAt(i);
     }
-
     return outputArray;
-}
+  }
+
+
 
 const generateSubscriberEndPoint = async (newRegistration: ServiceWorkerRegistration) => {
     const applicationServerKey = urlB64toUint8Array(process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_VAPID_KEY!);
