@@ -48,6 +48,8 @@ function urlB64toUint8Array(base64String: any) {
 }
 
 const generateSubscriberEndPoint = async (newRegistration: ServiceWorkerRegistration) => {
+    console.log("env variable : ", process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_VAPID_KEY);
+
     const applicationServerKey = urlB64toUint8Array(process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_VAPID_KEY);
 
     const options = {

@@ -26,7 +26,7 @@ export const sendNotification = async (message: string, name: string) => {
 
 
     /**
-     * uploader pour voir si le pwa marche en ligne.
+     * uploader pour voir si le pwa marche en ligne. validééé
      * Si oui, utiliser ce que je récupère en console pour le pushSubscription et c'est ça je passe 
      * en paramètre ici et j'appelle et je publie puis je vois ce que ça fait again
      */
