@@ -10,7 +10,8 @@ const showNotifications = () => {
 
 const subscribeUser = async () => {
     //make sure that my service worker is register before 
-    if ("serviceworker" in navigator) {
+
+    if ("serviceWorker" in navigator) {
         try {
             const registration = await navigator.serviceWorker.getRegistration()
             if (registration) {
@@ -22,6 +23,9 @@ const subscribeUser = async () => {
         } catch (error) {
             console.log("something went wrong in subscribe user fonction")
         }
+    } else {
+        console.log("service worker isn't in navigator");
+
     }
 }
 
@@ -43,22 +47,18 @@ function urlB64toUint8Array(base64String: any) {
     return outputArray;
 }
 
-
 const generateSubscriberEndPoint = async (newRegistration: ServiceWorkerRegistration) => {
-    const applicationServerKey = urlB64toUint8Array(process.env.WEB_PUSH_PUBLIC_VAPID_KEY);
+    const applicationServerKey = urlB64toUint8Array(process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_VAPID_KEY);
 
     const options = {
         userVisibleOnly: true,
         applicationServerKey
     }
 
-    const subscription = await newRegistration.pushManager.subscribe(options).then(
-        (pushSubscription) => {
-            console.log(pushSubscription.endpoint);
-        },
-        (error) => {
-        },
-    );
+
+    const subscription = await newRegistration.pushManager.subscribe(options);
+    console.log("subscription datas : ", subscription);
+
 }
 
 
