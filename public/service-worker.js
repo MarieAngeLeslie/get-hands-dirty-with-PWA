@@ -7,9 +7,10 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("push", async (event) => {
-    console.log("i'm pushed ");
     console.log("event-----");
     console.log("event-----+", event);
+    //console.log("event-----+", event);
+
 
     const { message, body, icon } = JSON.parse(event.data.text())
     console.log("je suis déclenché");
