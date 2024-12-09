@@ -37,11 +37,7 @@ export const sendNotification = async (message: string, name: string) => {
 
     webpush.sendNotification(
         pushSubscription,
-        JSON.stringify({
-            message: name,
-            icon: '🤩',
-            body: message
-        })
+        "just a TEST"
     );
 
     console.log("here to");
