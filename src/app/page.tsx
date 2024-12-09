@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 import { registerServiceWorker } from "../utils/utils";
 import { useEffect } from "react";
 import showNotifications from "./notifications";
-import { sendNotification } from "./server-side-notifications";
+import { sendNotification, test_ } from "@/app/server-side-notifications";
 
 export default function Home() {
 
@@ -15,7 +15,17 @@ export default function Home() {
   }, [])
 
   const handleNotifications = async (message: string, name: string) => {
+    try {
+      console.log("we're there");
+      await test_();
+    } catch (error) {
+      console.log("error :", error);
+
+    }
+
     await sendNotification(message, name);
+
+
   }
   return (
     <div className={styles.page}>

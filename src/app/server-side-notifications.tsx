@@ -2,7 +2,18 @@
 
 import webpush from 'web-push';
 
+export async function test_() {
+    try {
+        console.log("mido fiiii");
+    } catch (error) {
+        console.error("Error in test function:", error);
+        throw error;
+    }
+}
+
 export const sendNotification = async (message: string, name: string) => {
+
+    console.log("here too");
 
     const vapidKeys = {
         publicKey: process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_VAPID_KEY!,
@@ -32,6 +43,9 @@ export const sendNotification = async (message: string, name: string) => {
             body: message
         })
     );
+
+    console.log("here to");
+
 
 
     /**
