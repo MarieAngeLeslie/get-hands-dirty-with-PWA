@@ -27,10 +27,10 @@ export const sendNotification = async (message: string, name: string) => {
     );
 
     const pushSubscription = {
-        endpoint: "https://fcm.googleapis.com/fcm/send/cS3dzcjBYgg:APA91bFOThj2dePoUAxQQ9ClfVetM5HqhBxrdo8aeiR1prNN2ujUkG7o9pkowWQ4YMX_ZPbqLdDDVf7bRFeieNS-OlOdxjrAcYPk0ekES9j-F5L_HNz_7OpdH9fmkTWSy143qWfLZ6B1",
+        endpoint: 'https://fcm.googleapis.com/fcm/send/fIJe3UWkvXg:APA91bGx__YyfG5MnfRfpDPIoM5IZ9ZqZ7xIc0JbvQY9huTM18_0y2PP9P57QU5xxSUIiSdSl13VP0oNopIXpvw2N-Pmrp4AGxImOEyLAuD8CTfqRvF-6h3NgF33gIDjawOsoc8oS2Kj',
         keys: {
-            auth: "TLS6J-9Btzk6R6Ajbw9tZg",
-            p256dh: "BA0GPUZVfpeD0jjBBEXVj8fGjU7MMMQEOE0xVWaQgPk-uF_5vfq5UsccD42zKqbzznaDPPEDyp72FmWMLscmpdw"
+            auth: 'TLS6J-9Btzk6R6Ajbw9tZg',
+            p256dh: 'BA0GPUZVfpeD0jjBBEXVj8fGjU7MMMQEOE0xVWaQgPk-uF_5vfq5UsccD42zKqbzznaDPPEDyp72FmWMLscmpdw'
         }
     };
 
