@@ -25,7 +25,6 @@ export const sendNotification = async (message: string, name: string) => {
         vapidKeys.publicKey,
         vapidKeys.privateKey
     );
-
     const pushSubscription = {
         endpoint: 'https://fcm.googleapis.com/fcm/send/fIJe3UWkvXg:APA91bGx__YyfG5MnfRfpDPIoM5IZ9ZqZ7xIc0JbvQY9huTM18_0y2PP9P57QU5xxSUIiSdSl13VP0oNopIXpvw2N-Pmrp4AGxImOEyLAuD8CTfqRvF-6h3NgF33gIDjawOsoc8oS2Kj',
         keys: {
