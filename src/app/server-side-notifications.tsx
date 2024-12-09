@@ -28,10 +28,9 @@ export const sendNotification = async (message: string, name: string) => {
 
     const pushSubscription = {
         endpoint: "https://fcm.googleapis.com/fcm/send/cS3dzcjBYgg:APA91bFOThj2dePoUAxQQ9ClfVetM5HqhBxrdo8aeiR1prNN2ujUkG7o9pkowWQ4YMX_ZPbqLdDDVf7bRFeieNS-OlOdxjrAcYPk0ekES9j-F5L_HNz_7OpdH9fmkTWSy143qWfLZ6B1",
-        expirationTime: null,
         keys: {
-            p256dh: "BA0GPUZVfpeD0jjBBEXVj8fGjU7MMMQEOE0xVWaQgPk-uF_5vfq5UsccD42zKqbzznaDPPEDyp72FmWMLscmpdw",
-            auth: "TLS6J-9Btzk6R6Ajbw9tZg"
+            auth: "TLS6J-9Btzk6R6Ajbw9tZg",
+            p256dh: "BA0GPUZVfpeD0jjBBEXVj8fGjU7MMMQEOE0xVWaQgPk-uF_5vfq5UsccD42zKqbzznaDPPEDyp72FmWMLscmpdw"
         }
     };
 
