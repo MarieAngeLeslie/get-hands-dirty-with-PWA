@@ -6,6 +6,7 @@ import styles from "./page.module.css";
 import { registerServiceWorker } from "../utils/utils";
 import { useEffect } from "react";
 import showNotifications from "./notifications";
+import { sendNotification } from "./server-side-notifications";
 
 export default function Home() {
 
@@ -13,6 +14,9 @@ export default function Home() {
     registerServiceWorker()
   }, [])
 
+  const handleNotifications = async (message: string, name: string) => {
+    await sendNotification(message, name);
+  }
   return (
     <div className={styles.page}>
 
@@ -21,6 +25,11 @@ export default function Home() {
         &nbsp;&nbsp;&nbsp;&nbsp;
         {/* <button>Désactiver NOTIFICATION</button> */}
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <button onClick={() => handleNotifications("You're welcome on our app.JUST KIFF our Notification", "MYDUNYA TEST")}>TRIGGED NOTIFICATON</button>
       <main className={styles.main}>
         <Image
           className={styles.logo}

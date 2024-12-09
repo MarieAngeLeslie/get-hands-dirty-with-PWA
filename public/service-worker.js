@@ -5,3 +5,11 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
     console.log("Service worker activated");
 });
+
+self.addEventListener("push", async (event) => {
+    const { message, body, icon } = JSON.parse(event.data.text())
+
+    event.waitUntil(
+        self.registration.showNotification(message, { body, icon })
+    );
+})
