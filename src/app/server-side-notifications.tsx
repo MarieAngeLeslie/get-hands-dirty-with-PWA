@@ -26,10 +26,10 @@ export const sendNotification = async (message: string, name: string) => {
         vapidKeys.privateKey
     );
     const pushSubscription = {
-        endpoint: 'https://fcm.googleapis.com/fcm/send/fIJe3UWkvXg:APA91bGx__YyfG5MnfRfpDPIoM5IZ9ZqZ7xIc0JbvQY9huTM18_0y2PP9P57QU5xxSUIiSdSl13VP0oNopIXpvw2N-Pmrp4AGxImOEyLAuD8CTfqRvF-6h3NgF33gIDjawOsoc8oS2Kj',
+        endpoint: 'https://fcm.googleapis.com/fcm/send/d7LDE49wEb8:APA91bGncmG22S5zIigiGXIUnRD7ezDvKytDs1ForDTFnRXXYQbdT_W7m911vTcO0OjPqIIlxqsXYypxgXCyThQx-6b-SqoaYLHPViaHJglE0CtZuGKDlHpE03FjGjW9KzlhjCqk9fs2',
         keys: {
-            auth: 'TLS6J-9Btzk6R6Ajbw9tZg',
-            p256dh: 'BA0GPUZVfpeD0jjBBEXVj8fGjU7MMMQEOE0xVWaQgPk-uF_5vfq5UsccD42zKqbzznaDPPEDyp72FmWMLscmpdw'
+            auth: 'nJfK1FNiUsPJi_euA-PROA',
+            p256dh: 'BMkIclFW0vg4DdOgEusujI5jtPAsFr458z7hqyaxHIGNCQnoljRUfmjI02GPqPwszKAChKwuP_5buH1xJD6xCvc'
         }
     };
 
@@ -37,7 +37,7 @@ export const sendNotification = async (message: string, name: string) => {
         pushSubscription,
         JSON.stringify({
             message: name,
-            icon: '🤩',
+            icon: 'nice notification🤩',
             body: message
         })
     );
