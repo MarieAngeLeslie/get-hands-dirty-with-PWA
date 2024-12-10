@@ -26,10 +26,10 @@ export const sendNotification = async (message: string, name: string) => {
         vapidKeys.privateKey
     );
     const pushSubscription = {
-        endpoint: 'https://fcm.googleapis.com/fcm/send/d7LDE49wEb8:APA91bGncmG22S5zIigiGXIUnRD7ezDvKytDs1ForDTFnRXXYQbdT_W7m911vTcO0OjPqIIlxqsXYypxgXCyThQx-6b-SqoaYLHPViaHJglE0CtZuGKDlHpE03FjGjW9KzlhjCqk9fs2',
+        endpoint: 'https://fcm.googleapis.com/fcm/send/c2d9WASc_Uo:APA91bF5qONr-cyRpN6aVCasxLlk7yv-yhXJr6Z5gdAzPH0bIX6C1t85E6Z4aTIsxjCO31Hxot8q7MgoH_qobyJTZHmJx1G7Vr4tokOHTh-cJxbrGnxY2MuLeOdCeuNZCW7EF3L018Au',
         keys: {
-            auth: 'nJfK1FNiUsPJi_euA-PROA',
-            p256dh: 'BMkIclFW0vg4DdOgEusujI5jtPAsFr458z7hqyaxHIGNCQnoljRUfmjI02GPqPwszKAChKwuP_5buH1xJD6xCvc'
+            auth: 'F62CChVmyU4FVa39-TYJUA',
+            p256dh: 'BB5E3VBQT0RfxBwQ-0sx4zabWlxhDwWlYiDD991BhOVHTL-K3aFr9fiHriytJVDuAfkAo5j3o2TnK_b8Wtm7fCU'
         }
     };
 

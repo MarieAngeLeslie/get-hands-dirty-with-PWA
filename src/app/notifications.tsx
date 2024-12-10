@@ -65,7 +65,7 @@ const generateSubscriberEndPoint = async (newRegistration: ServiceWorkerRegistra
 
         },
     );
-    console.log("subscription", subscription);
+    // console.log("subscription", subscription);
 
 }
 
