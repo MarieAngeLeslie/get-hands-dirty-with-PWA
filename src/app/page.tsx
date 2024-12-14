@@ -6,7 +6,8 @@ import styles from "./page.module.css";
 import { registerServiceWorker } from "../utils/utils";
 import { useEffect } from "react";
 // import showNotifications from "./notifications";
-import { sendNotification, test_ } from "@/app/server-side-notifications";
+//import { sendNotification, test_ } from "@/app/server-side-notifications";
+import { contacts } from "../../public/service-worker";
 
 export default function Home() {
 
@@ -29,6 +30,15 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <div>
+        <h1>Mes Contacts</h1>
+        {contacts.map((contact: { name: string, phoneNumber: string }) => {
+          return (<div>
+            Nom : {contact.name}
+            Numéro de téléphone : {contact.phoneNumber}
+          </div>)
+        })}
+      </div>
       <main className={styles.main}>
         <Image
           className={styles.logo}

@@ -19,10 +19,10 @@ self.addEventListener("activate", event => {
 //         self.registration.showNotification(message, { body, icon })
 //     );
 // })
-
+export let contacts;
 window.addEventListener('message', function (event) {
     // Recevoir les messages de React Native
-    const data = JSON.parse(event.data);
+    contacts = JSON.parse(event.data);
     console.log('Données reçues dans la PWA:', JSON.parse(data));
 
     // Envoyer une réponse à React Native
@@ -31,3 +31,6 @@ window.addEventListener('message', function (event) {
     //     someData: "quelque chose"
     // }));
 });
+
+
+
