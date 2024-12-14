@@ -19,7 +19,7 @@ self.addEventListener("activate", event => {
 //         self.registration.showNotification(message, { body, icon })
 //     );
 // })
-export let contacts;
+export const contacts = [];
 window.addEventListener('message', function (event) {
     // Recevoir les messages de React Native
     contacts = JSON.parse(event.data);
