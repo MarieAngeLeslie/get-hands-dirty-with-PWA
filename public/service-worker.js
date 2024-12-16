@@ -6,6 +6,16 @@ self.addEventListener("activate", event => {
     console.log("Service worker activated");
 });
 
+window.addEventListener('message', function (event) {
+    console.log("Event message reçu dans SW:", event);
+    try {
+        contacts = JSON.parse(event.data);
+        console.log('Données parsées:', contacts);
+    } catch (error) {
+        console.error("Erreur parsing:", error);
+    }
+});
+
 // self.addEventListener("push", async (event) => {
 //     console.log("event-----");
 //     console.log("event-----+", event);
@@ -19,18 +29,6 @@ self.addEventListener("activate", event => {
 //         self.registration.showNotification(message, { body, icon })
 //     );
 // })
-export const contacts = [];
-window.addEventListener('message', function (event) {
-    // Recevoir les messages de React Native
-    contacts = JSON.parse(event.data);
-    console.log('Données reçues dans la PWA:', JSON.parse(data));
-
-    // Envoyer une réponse à React Native
-    // window.ReactNativeWebView.postMessage(JSON.stringify({
-    //     response: "Message reçu!",
-    //     someData: "quelque chose"
-    // }));
-});
 
 
 

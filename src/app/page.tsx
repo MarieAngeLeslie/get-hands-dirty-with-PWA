@@ -4,41 +4,65 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 import { registerServiceWorker } from "../utils/utils";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // import showNotifications from "./notifications";
 //import { sendNotification, test_ } from "@/app/server-side-notifications";
-import { contacts } from "../../public/service-worker";
+
+interface NotificationData {
+  id: string,
+  name: string,
+  promoNotif: string,
+  sender: string
+}
 
 export default function Home() {
+  const [contacts, setContacts] = useState([]);
+  const [test, setTest] = useState('');
+  const [test2, setTest2] = useState('');
+  const [typeOfData, setTypeOfData] = useState('');
+
+  const [notificationDatas, setNotificationDatas] = useState<NotificationData>();
+
+
 
   useEffect(() => {
-    registerServiceWorker()
+    registerServiceWorker();
+
+    const handleMessage = (event: MessageEvent) => {
+      const receivedDatas = JSON.parse(event.data)
+      try {
+        if (receivedDatas.promoNotif) {
+          setTest('')
+          console.log("Message venant de la push notificationavec App fermée");
+          setNotificationDatas(receivedDatas)
+          return;
+        }
+      } catch (error) {
+        console.error('Erreur lors du parsing des notifs:', error);
+      }
+
+      try {
+        const receivedDatas = JSON.parse(event.data);
+        console.log('Contacts reçus:', receivedDatas);
+        setContacts(receivedDatas);
+      } catch (error) {
+        console.error('Erreur lors du parsing des contacts:', error);
+      }
+
+    }
+
+    window.addEventListener("message", handleMessage, true);
+
+    return () => {
+      window.removeEventListener("message", handleMessage, true);
+    };
   }, [])
 
-  // const handleNotifications = async (message: string, name: string) => {
-  //   try {
-  //     console.log("we're there");
-  //     await test_();
-  //   } catch (error) {
-  //     console.log("error :", error);
-  //   }
 
-  //   await sendNotification(message, name);
-
-
-  // }
 
   return (
     <div className={styles.page}>
-      <div>
-        <h1>Mes Contacts</h1>
-        {contacts.map((contact: { name: string, phoneNumber: string }) => {
-          return (<div>
-            Nom : {contact.name}
-            Numéro de téléphone : {contact.phoneNumber}
-          </div>)
-        })}
-      </div>
+
       <main className={styles.main}>
         <Image
           className={styles.logo}
@@ -50,7 +74,7 @@ export default function Home() {
         />
         <h1>MyDunya Testing APP</h1>
 
-        <div className={styles.ctas}>
+        <div className={styles.ctas} key={1}>
           <a
             className={styles.primary}
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
@@ -75,7 +99,36 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+
+        <div key={"2-"}>
+          <h1>Mes Contacts</h1>
+          Texte à affciher ici : {test}
+          {contacts.map((contact: { name: string, phoneNumber: string }, index) => {
+            return (<div key={index}>
+              Nom : {contact.name}
+              <br />
+              Numéro de téléphone : {contact.phoneNumber}
+            </div>)
+          })}
+        </div>
+
+        <div key={3}>
+          {/* {"promoNotif":"true", "id":"593", "name":"Marie-Ange", "sender":"Paydunya Testing App"} */}
+
+          <h1>Notifications Datas</h1>
+          Name: {notificationDatas?.name}
+          <br />
+          Sender:{notificationDatas?.sender}
+          <br />
+          {test}
+          <br />
+          {/* {typeOfData} */}
+        </div>
       </main>
+
     </div>
   );
 }
+
+
+
