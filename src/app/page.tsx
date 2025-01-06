@@ -23,6 +23,7 @@ export default function Home() {
 
   const [notificationDatas, setNotificationDatas] = useState<NotificationData>();
 
+  console.log("CONTACTS : ", contacts);
 
 
   useEffect(() => {
@@ -102,8 +103,8 @@ export default function Home() {
 
         <div key={"2-"}>
           <h1>Mes Contacts</h1>
-          Texte à affciher ici : {test}
-          {contacts.map((contact: { name: string, phoneNumber: string }, index) => {
+          <h2>Showing a little part of my tests</h2>
+          {contacts?.map((contact: { name: string, phoneNumber: string }, index) => {
             return (<div key={index}>
               Nom : {contact.name}
               <br />
